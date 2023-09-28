@@ -19,7 +19,8 @@ class AppFixtures extends Fixture
         for ($i = 0; $i < 100; $i++) {
             $user = new User();
             $user->setUsername($faker->userName())
-                ->setPassword($faker->password());
+                ->setPassword($faker->password())
+                ->setRoles(['ROLE_USER']);
             // On ajoute l'objet user dans le tableau
             array_push($objectUser, $user);
             // On persiste l'objet user
@@ -61,6 +62,8 @@ class AppFixtures extends Fixture
             // On persiste l'objet note
             $manager->persist($note);
         }
+
+
 
         $manager->flush();
     }
